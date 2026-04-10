@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Knight</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <div class="game-frame">
+    <div class="scene">
+      <div class="robot">
+        <div class="beep"></div>
+        <div class="brain">
+          <div class="visor"></div>
+        </div>
+        <div class="torso">
+          <div class="emblem"></div>
+          <div class="left">j</div>
+          <div class="right">j</div>
+          <div class="shield"></div>
+          <div class="weapon">
+            <div class="sword"></div>
+            <div class="handle"></div>
+          </div>
+        </div>
+        <div class="foot"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="off">EYES OFF</button>
+    <button class="stop">STOP</button>
+  </div>
+
+  <script>
+    //Stop/Move
+    const stopButton = document.querySelector(".stop");
+    const robot = document.querySelector(".robot");
+
+    stopButton.addEventListener("click", () => {
+      robot.classList.toggle("paused");
+
+      if (robot.classList.contains("paused")) {
+        stopButton.textContent = "MOVE";
+      } else {
+        stopButton.textContent = "STOP";
+      }
+    });
+
+    //Eyes Off/On
+    const offButton = document.querySelector(".off");
+    const eyes = document.querySelector(".brain");
+
+    offButton.addEventListener("click", () => {
+      eyes.classList.toggle("eyes-off");
+
+      if (eyes.classList.contains("eyes-off")) {
+        offButton.textContent = "EYES ON";
+      } else {
+        offButton.textContent = "EYES OFF"
+      }
+    });
+  </script>
+</body>
+</html>
